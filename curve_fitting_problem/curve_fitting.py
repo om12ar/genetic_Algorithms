@@ -22,7 +22,7 @@ def initiate(pop, degree):
     for i in range(0, pop_size):
         chromosome = []
         for j in range(0, degree + 1):
-            chromosome.append(round(random.uniform(-10, 10), 1))
+            chromosome.append(round(random.uniform(-10, 10), 5))
 
         pop.append(chromosome)
 
@@ -37,7 +37,9 @@ def evaluate_fitness(chromosome, points):
         mean_square_error += pow(y - point[1], 2)
 
     mean_square_error *= (1 / len(points))
-    return mean_square_error
+    fitness = 1/mean_square_error
+    # print(fitness , mean_square_error)
+    return fitness
 
 
 def get_probability(fitnesses):
